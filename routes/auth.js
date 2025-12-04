@@ -62,7 +62,7 @@ router.post("/longin", (req, res) => {
  });
 });
 
-export default routter;
+export default router;
     
 
 
