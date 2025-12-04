@@ -14,6 +14,11 @@ app.use(cors());
 app.use(helmet());
 app.use(express.json());
 
+//conectar rutas
+import  authRoutes from "./routes/auth.js";
+
+app.use("/auth", authRoutes);
+
 // Ejecutar migraciones de la base de datos
 runMigrations();
 
