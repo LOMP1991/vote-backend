@@ -16,8 +16,10 @@ app.use(express.json());
 
 //conectar rutas
 import  authRoutes from "./routes/auth.js";
-
 app.use("/auth", authRoutes);
+
+import userRoutes from "./routes/userRoutes.js";
+app.use("/api/users", userRoutes);
 
 // Ejecutar migraciones de la base de datos
 runMigrations();
