@@ -21,6 +21,9 @@ app.use("/auth", authRoutes);
 import userRoutes from "./routes/userRoutes.js";
 app.use("/api/users", userRoutes);
 
+import electionRoutes from "./routes/electionRoutes.js";
+app.use("/api/elections", electionRoutes);
+
 // Ejecutar migraciones de la base de datos
 runMigrations();
 
