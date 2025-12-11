@@ -8,8 +8,8 @@ const initDB = async () => {
     });
 
     console.log("Conexión a la base de datos establecida");
- // Crear tabla de usuarios si no existe
 
+// Crear tabla de usuarios si no existe
  await db.exec(`
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -17,8 +17,18 @@ const initDB = async () => {
             email TEXT NOT NULL UNIQUE,
             passsword TEXT NOT NULL
         );
+        
     `);
 
+// Tabla de elecciones
+ await db.exec(`
+      CREATE TABLE IF NOT EXISTS elections (
+         id INTEGER PRIMARY KEY AUTOINCREMENT,
+         title TEXT NOT NULL,
+         description TEXT,
+         isActive INTEGER DEFAULT 0
+       );
+  `);
     console.log("Migraciones ejecutadas correctamente");
 
     return db;
