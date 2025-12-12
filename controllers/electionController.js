@@ -21,3 +21,22 @@ export const createElection = async (req, res) => {
     res.status(500).json({ error: "Error al crear la elección", details: error });
    }
 };
+
+
+export const getElections = async (req, res) => {
+   try{
+      const elections = await db.all(`
+      SELECT id, title, description, isActive
+      FROM elections
+      ORDER BY id DESC
+    `);
+
+    res.json(elections);
+} catch (error) {
+   res.status(500).json({
+      error: "Error al obtener las elecciones", 
+      details: error
+   });
+
+}
+};
